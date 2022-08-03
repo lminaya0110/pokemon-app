@@ -1,7 +1,18 @@
 const express = require('express')
+const mongoose = require('mongoose')
+require('dotenv').config()
+const pokemon = require('./models/pokemon')
 const app = express()
 const port = 3000
-const pokemon = require('./models/pokemon')
+
+
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connection.once('open', ()=> {
+    console.log('connected to mongo');
+});
+
+
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
