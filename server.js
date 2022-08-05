@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('I am listening on port ', port)
+    //http here makes port show up as hyperlink
+    console.log(`Listening on http://localhost:${port}`)
 })
 
